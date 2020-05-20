@@ -51,14 +51,11 @@ class Resource {
                 uri,
                 body,
                 method,
-                auth: {
-                    user: config.getAccountToken(),
-                    pass: config.getSecretKey(),
-                    sendImmediately: true,
-                },
                 baseUrl: config.API_BASE,
                 headers: {
                     'User-Agent': 'xenon-node/' + config.VERSION,
+                    'x-access-key': config.getAccountToken(),
+                    'x-secret-key': config.getSecretKey(),
                 },
                 json: true,
             };
